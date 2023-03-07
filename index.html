@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Alterar Cor ao Clicar</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="primeiro-passo">
+        <h1>Background Color : <span class="valor"> ...</span></h1>
+      </div>
+      <div class="botao">
+        <button onclick="altera_cor1()">Clique</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    // Seleciona a class valor
+    const valor_2 = document.querySelector(".valor");
+
+    // "formula" para pode alterar os numeros do rgb altomaticamente, valor padrão da opacidade = 1
+    function altera_cor(opacidade = 1) {
+      let r = parseInt(Math.random() * 255);
+      let g = parseInt(Math.random() * 255);
+      let b = parseInt(Math.random() * 255);
+
+      return `rgba(${r}, ${g}, ${b}, ${opacidade})`;
+    }
+
+    // Função criada para que ao clicar altere a background
+    function altera_cor1() {
+      document.body.style.backgroundColor = altera_cor();
+
+    // Usada para passar o valor do rgb na página html
+      valor_2.innerHTML = altera_cor();
+    }
+  </script>
+</html>
